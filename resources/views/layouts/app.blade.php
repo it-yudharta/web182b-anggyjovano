@@ -36,6 +36,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/admins') }}">Data Admin</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/stok') }}">Stok Hand
+                                phone</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/perdana') }}">Kuota Internet</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

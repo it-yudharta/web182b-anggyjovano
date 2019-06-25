@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
+use App\stok;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class StokController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::paginate(10);
+        $item = Stok::paginate(10);
 
-        return view('admin.index', ['admins' => $admins ]);
+        return view('stok.index', ['stoks' => $item ]);
     }
 
     /**
@@ -24,9 +24,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah()
     {
-        return view('admin.create');
+        return view('stok.tambah');
     }
 
     /**
@@ -37,22 +37,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $tambah = new Admin;
-        $tambah->nama = $request['nama'];
-        $tambah->alamat = $request['alamat'];
-        $tambah->tugas = $request['tugas'];
+        $tambah = new Stok;
+        $tambah->merk = $request['merk'];
+        $tambah->tipe = $request['tipe'];
+        $tambah->harga = $request['harga'];
+        $tambah->stok = $request['stok'];
         $tambah->save();
 
-        return redirect('/admins')->with('stok', 'Tambah Telah Berhasil');
+        return redirect('/stok')->with('stok', 'Tambah Telah Berhasil');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  \App\stok  $stok
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(stok $stok)
     {
         //
     }
@@ -60,45 +61,47 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  \App\stok  $stok
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $admin = Admin::find($id);
+        $edit = Stok::find($id);
 
-        return view('admin.edit', [ 'admins' => $admin]);
+        return view('stok.edit', [ 'stoks' => $edit]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
+     * @param  \App\stok  $stok
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $edit = Admin::find($id);
-        $edit->nama = $request['nama'];
-        $edit->alamat = $request['alamat'];
-        $edit->tugas = $request['tugas'];
+        $edit = Stok::find($id);
+        $edit->merk = $request['merk'];
+        $edit->tipe = $request['tipe'];
+        $edit->harga = $request['harga'];
+        $edit->stok = $request['stok'];
         $edit->update();
 
-        return redirect('/admins')->with('hapus', 'Edit Telah Berhasil');
+        return redirect('/stok')->with('hapus', 'Edit Telah Berhasil');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin  $admin
+     * @param  \App\stok  $stok
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $hapus = Admin::where('id', $id);
+        $hapus = Stok::where('id', $id);
         $hapus->delete();
 
-        return redirect('/admins')->with('hapus', 'Hapus Telah Berhasil');
-        }
+        return redirect('/stok')->with('hapus', 'Hapus Telah Berhasil');
+
+    }
 }

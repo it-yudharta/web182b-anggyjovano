@@ -25,3 +25,17 @@ Route::get('/admins/store','AdminController@store');
 Route::get('/admins/{id}/edit','AdminController@edit');
 Route::get('/admins/{id}/update','AdminController@update');
 Route::get('/admins/{id}/hapus','AdminController@destroy');
+
+Route::get('/stok', 'StokController@index'); //untuk table Stok Handphone
+Route::get('/stok/tambah', 'StokController@tambah');
+Route::get('/stok/store', 'StokController@store');
+Route::get('/stok/{id}/edit', 'StokController@edit');
+Route::get('/stok/{id}/update', 'StokController@update');
+Route::get('/stok/{id}/hapus', 'StokController@destroy');
+
+Route::get('/perdana', 'KuotaController@index'); //untuk table Kuota Internet
+Route::get('/perdana/tambah', 'KuotaController@tambah');
+Route::get('/perdana/store', 'KuotaController@store');
+Route::get('/perdana/{id}/edit', 'KuotaController@edit');
+Route::get('/perdana/{id}/update', 'KuotaController@update');
+Route::get('/perdana/{id}/hapus', 'KuotaController@destroy');

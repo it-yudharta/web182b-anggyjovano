@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Edit Data Admin</div>
+                <div class=" bg bg-info card-header">Edit Data Admin</div>
 
                 <div class="card-body">
                 <form method="GET" action="/admins/{{$admins->id}}/update">

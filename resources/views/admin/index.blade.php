@@ -4,18 +4,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('stok'))
+            <div class="alert alert-primary" role="alert">
+            {{session('stok')}}
+            </div>
+            @endif
+            @if(session('hapus'))
+            <div class="alert alert-success" role="alert">
+            {{session('hapus')}}
+            </div>
+            @endif
             <div class="card">
-                <div class="p-3 mb-2 bg-info text-white card-header">Data Admin
+                <div class="text-dark card-header">Data Admin
                 <a
-                    class ="btn btn-success float-right"
+                    class ="btn  btn-sm btn-primary float-right"
                     role="button" href="/admins/create">
                     Tambah Admin                
                 </a>
                 </div>
                 <div class="card-body">
-                <table class="table">
+                <table class="table table-sm table-striped table-danger">
                         <thead>
-                        <tr>
+                        <tr class="table-primary">
                             <th scope="col">ID</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Alamat</th>
